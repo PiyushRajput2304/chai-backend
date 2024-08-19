@@ -118,8 +118,8 @@ const loginUser = asyncHandler(async (req, res) =>{
         
     // }
 
-    const user = await User.findOne({
-        $or: [{username}, {email}]
+    const user = await User.findOne({//await cause email/password is in another continenet(mongodb)
+        $or: [{username}, {email}]//to find username or email any one ($or -> operator)
     })
 
     if (!user) {
